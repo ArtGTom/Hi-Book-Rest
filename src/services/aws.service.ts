@@ -1,10 +1,10 @@
 import AWS from 'aws-sdk';
-import User from '../../models/user.model';
-import db from '../../database/connection';
-import Book from '../../models/book.model';
-import ImageBook from '../../models/imageBook.model';
+import User from './../models/user.model';
+import db from './../database/connection';
+import Book from './../models/book.model';
+import ImageBook from './../models/imageBook.model';
 import { PutObjectRequest } from 'aws-sdk/clients/s3';
-import { NewImageBook } from '../../models/imageBookOperations.model';
+import { NewImageBook } from './../models/imageBookOperations.model';
 
 /* Instancia o service da AWS */
 const s3 = new AWS.S3();

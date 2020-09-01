@@ -1,19 +1,19 @@
-import express, { request, response } from 'express';
+import express from 'express';
 import multer from 'multer';
-import User from '../models/user.model';
-import PutProfile from '../models/profileOperations.model';
-import { CreateUser, SearchUsers } from '../models/userOperations.model';
-import { NewBook, PutBook } from '../models/bookOperations.mode';
-import { verifyTokenByRequest, getUserByRequest } from '../utils/JWTAuthentication';
+import User from './models/user.model';
+import PutProfile from './models/profileOperations.model';
+import { CreateUser, SearchUsers } from './models/userOperations.model';
+import { NewBook, PutBook } from './models/bookOperations.mode';
+import { verifyTokenByRequest, getUserByRequest } from './utils/JWTAuthentication';
 import { uploadImageProfile, uploadImageBook, deleteImageBook } from './services/aws.service';
 import { Login, Register } from './services/auth.service';
 import { updateProfile, readProfile, putPassword } from './services/profile.service';
 import { createBook, readBooks, updateBook, deleteBook, readBook } from './services/book.service';
-import { NewImageBook } from '../models/imageBookOperations.model';
+import { NewImageBook } from './models/imageBookOperations.model';
 import { updateGeolocation, readGeolocation } from './services/geolocation.service';
-import { NewGeolocation } from '../models/geolocationOperations.model';
+import { NewGeolocation } from './models/geolocationOperations.model';
 import { readUsers } from './services/users.service';
-import { NewExchange } from '../models/exchangeOperations.model';
+import { NewExchange } from './models/exchangeOperations.model';
 import { createExchange, readExchanges, addSecondBookInExchange, updateStatusExchange } from './services/exchange.service';
 
 const routes = express.Router();
@@ -189,8 +189,8 @@ routes.post('/exchanges', async (request, response) => {
 
 routes.get('/exchanges', async (request, response) => {
     const user: User = await getUserByRequest(request, response);
-    const paramStatus: {status?: 'pendente' | 'confirmada' | 'recusada' | 'concluida' | 'cancelada'} = request.query;
-    
+    const paramStatus: { status?: 'pendente' | 'confirmada' | 'recusada' | 'concluida' | 'cancelada' } = request.query;
+
     readExchanges(user, paramStatus.status)
         .then(result => response.status(200).json(result));
 });
@@ -199,7 +199,7 @@ routes.post('/exchanges/:idExchange', async (request, response) => {
     const user: User = await getUserByRequest(request, response);
     const idExchange: number = parseInt(request.params['idExchange']);
     const requestedBookId: number = request.body.requestedBookId;
-    
+
     addSecondBookInExchange(user, idExchange, requestedBookId)
         .then(result => response.status(200).json(result))
         .catch(error => response.status(error.status || 400).json(error));

@@ -1,9 +1,7 @@
 import express from 'express';
-import routes from './http/routes';
-import startWebSocket from './websocket/socketIo';
+import routes from './routes';
 
 const app = express();
-startWebSocket(app);
 
 const listenPort = process.env.PORT || 4242;
 

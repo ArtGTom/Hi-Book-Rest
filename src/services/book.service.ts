@@ -1,8 +1,8 @@
-import db from "../../database/connection";
-import User from "../../models/user.model";
-import Book from "../../models/book.model";
-import { NewBook, ViewBook, PutBook } from "../../models/bookOperations.mode";
-import { convertFromBook } from "../../utils/convertModelToJSON";
+import db from "./../database/connection";
+import User from "./../models/user.model";
+import Book from "./../models/book.model";
+import { NewBook, ViewBook, PutBook } from "./../models/bookOperations.mode";
+import { convertFromBook } from "./../utils/convertModelToJSON";
 
 export async function createBook(user: User, newBook: NewBook) {
     const insertBook: Book = {

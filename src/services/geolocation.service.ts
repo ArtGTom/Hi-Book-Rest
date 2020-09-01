@@ -1,8 +1,8 @@
-import Geolocation from "../../models/geolocation.model";
-import db from '../../database/connection';
-import User from '../../models/user.model';
-import { NewGeolocation } from "../../models/geolocationOperations.model";
-import { convertFromGeolocation } from "../../utils/convertModelToJSON";
+import Geolocation from "./../models/geolocation.model";
+import db from './../database/connection';
+import User from './../models/user.model';
+import { NewGeolocation } from "./../models/geolocationOperations.model";
+import { convertFromGeolocation } from "./../utils/convertModelToJSON";
 
 export async function createGeolocation(user: User, newGeolocation: NewGeolocation) {
 

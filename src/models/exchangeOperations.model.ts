@@ -10,7 +10,7 @@ export interface ViewExchange {
     id: number,
     status: ViewStatusExchange,
     requestedBook: ViewBook,
-    myConfirmation: "pendente" | "confirmado" | "concluido" | "recusado",
+    myConfirmation: "pendente" | "confirmado" | "concluido" | "recusado" | "cancelado",
     trader: {
         name: string,
         username: string,

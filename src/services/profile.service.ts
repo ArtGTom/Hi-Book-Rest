@@ -1,10 +1,10 @@
-import Profile from '../../models/profile.model';
-import PutProfile from '../../models/profileOperations.model'
-import User from '../../models/user.model';
-import db from '../../database/connection';
+import Profile from './../models/profile.model';
+import PutProfile from './../models/profileOperations.model'
+import User from './../models/user.model';
+import db from './../database/connection';
 import bCrypt from 'bcrypt';
-import UF from '../../models/uf.model';
-import { convertFromUser } from '../../utils/convertModelToJSON';
+import UF from './../models/uf.model';
+import { convertFromUser } from './../utils/convertModelToJSON';
 
 export async function readProfile(user: User) {
     return new Promise(async (resolve) => {

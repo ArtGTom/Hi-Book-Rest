@@ -1,9 +1,9 @@
-import User from "../../models/user.model";
-import db from "../../database/connection";
-import Profile from "../../models/profile.model";
-import haversine from "../../utils/haversine";
-import { SearchUsers } from '../../models/userOperations.model';
-import { convertFromUser } from "../../utils/convertModelToJSON";
+import User from "./../models/user.model";
+import db from "./../database/connection";
+import Profile from "./../models/profile.model";
+import haversine from "./../utils/haversine";
+import { SearchUsers } from './../models/userOperations.model';
+import { convertFromUser } from "./../utils/convertModelToJSON";
 
 export async function readUsers(user: User, paramsSearchUsers: SearchUsers): Promise<Array<Profile>> {
     const userProfile: Profile = await convertFromUser(user);
